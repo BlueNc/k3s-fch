@@ -16,6 +16,8 @@ argo-cd:
         value: http://proxy-web.proxy-dmz.gnc:3128
       - name: HTTPS_PROXY
         value: http://proxy-web.proxy-dmz.gnc:3128
+      - name: NO_PROXY
+        value: 127.0.0.0/24,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,0.0.0.0/32,localhost,.svc
   dex:
     enabled: false
   server:
