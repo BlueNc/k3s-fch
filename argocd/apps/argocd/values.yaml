@@ -1,0 +1,36 @@
+global:
+  image:
+    repository: docker-registry.ref.gnc/argoproj/argocd
+
+argo-cd:
+  namespace: argocd
+  configs:
+    repositories:
+      k3s-fch:
+        url: https://github.com/BlueNc/k3s-fch.git
+    params:
+      server.insecure: true
+
+  repoServer:
+    env:
+      - name: HTTP_PROXY
+        value: http://proxy-web.proxy-dmz.gnc:3128
+      - name: HTTPS_PROXY
+        value: http://proxy-web.proxy-dmz.gnc:3128
+
+  dex:
+    enabled: false
+
+  server:
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      hosts:
+        - argo-cd.k3s-fch.dev.gnc
+      annotations:
+        cert-manager.io/issuer: "ca-issuer"
+      tls:
+        - hosts:
+            - argo-cd.k3s-fch.dev.gnc
+          secretName: k3s-fch-dev-gnc
+      https: false
