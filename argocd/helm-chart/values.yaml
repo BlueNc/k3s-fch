@@ -63,3 +63,6 @@ argocd-apps:
       destinations:
         - namespace: argocd
           server: https://kubernetes.default.svc
+      clusterResourceWhitelist:
+        - group: "*"
+          kind: "*"
