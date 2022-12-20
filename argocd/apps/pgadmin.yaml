@@ -2,10 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: pgadmin4
-  namespace: pgadmin4
+  namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: pgadmin4
     server: https://kubernetes.default.svc
   project: argocd
   source:
