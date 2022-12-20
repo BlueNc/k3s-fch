@@ -20,7 +20,7 @@ spec:
           enabled: true
           ingressClassName: traefik
           hosts:
-            - pgadmin.k3s-fch.dev.gnc
+            - host: pgadmin.k3s-fch.dev.gnc
           annotations:
             cert-manager.io/issuer: "ca-issuer"
           tls:
