@@ -1,11 +1,10 @@
-nameOverride: argocd
-fullnameOverride: ""
-
 global:
   image:
     repository: docker-registry.ref.gnc/argoproj/argocd
 
 argo-cd:
+  nameOverride: argocd
+  fullnameOverride: ""
   namespace: argocd
   configs:
     repositories:
