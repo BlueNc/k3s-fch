@@ -1,3 +1,6 @@
+nameOverride: argocd
+fullnameOverride: ""
+
 global:
   image:
     repository: docker-registry.ref.gnc/argoproj/argocd
