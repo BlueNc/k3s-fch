@@ -21,6 +21,9 @@ spec:
           ingressClassName: traefik
           hosts:
             - host: pgadmin.k3s-fch.dev.gnc
+              paths:
+                - path: /
+                  pathType: Prefix
           annotations:
             cert-manager.io/issuer: "ca-issuer"
           tls:
