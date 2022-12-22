@@ -1,11 +1,15 @@
 # k3s-fch
 
-
-cd ./argocd/helm-chart/
+cd ./argocd/argocd/
 helm dependency build
-
 cd ../..
-helm install argo-cd ./argocd/helm-chart --namespace argocd --create-namespace
+helm install argocd ./argocd/argocd --namespace argocd --create-namespace
+
+cd ./argocd/argocd-apps/
+helm dependency build
+cd ../..
+helm install argocd-apps ./argocd/argocd-apps --namespace argocd
+
 
 https://argo-cd.k3s-fch.dev.gnc/
 user : admin

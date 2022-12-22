@@ -1,0 +1,32 @@
+argocd-apps:
+  applications:
+    - name: apps-of-apps
+      namespace: argocd
+      additionalAnnotations:
+        "helm.sh/resource-policy": keep
+      destination:
+        namespace: argocd
+        server: https://kubernetes.default.svc
+      project: argocd
+      source:
+        path: argocd/apps
+        repoURL: https://github.com/BlueNc/k3s-fch.git
+        targetRevision: HEAD
+        directory:
+          recurse: true
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+  projects:
+    - name: argocd
+      namespace: argocd
+      description: Argocd Project
+      sourceRepos:
+        - "*"
+      destinations:
+        - namespace: "*"
+          server: https://kubernetes.default.svc
+      clusterResourceWhitelist:
+        - group: "*"
+          kind: "*"

@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: argocd
   source:
-    path: argocd/helm-chart
+    path: argocd/argocd
     repoURL: https://github.com/BlueNc/k3s-fch.git
     targetRevision: HEAD
   syncPolicy:
