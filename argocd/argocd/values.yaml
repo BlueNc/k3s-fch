@@ -31,9 +31,9 @@ argo-cd:
       hosts:
         - argo-cd.k3s-fch.dev.gnc
       annotations:
-        cert-manager.io/issuer: "ca-issuer"
+        cert-manager.io/cluster-issuer: "ca-issuer"
       tls:
         - hosts:
             - argo-cd.k3s-fch.dev.gnc
-          secretName: k3s-fch-dev-gnc
+          secretName: argo-cd-k3s-fch-dev-gnc
       https: false
