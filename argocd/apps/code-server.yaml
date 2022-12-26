@@ -12,7 +12,7 @@ spec:
   project: argocd
   source:
     repoURL: https://github.com/coder/code-server
-    targetRevision: v4.9.1
+    targetRevision: HEAD
     path: ci/helm-chart
     helm:
       valueFiles:
