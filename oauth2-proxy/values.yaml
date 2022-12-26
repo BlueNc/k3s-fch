@@ -1,0 +1,26 @@
+configuration:
+  clientID: "bac46b4c7cd995b7598a"
+  clientSecret: "89ee19600bbcb7296ee8382427ee7938ccede58c"
+  cookieSecret: "RU9ReUE3NUhXcEk1N3N5Rk1ZdnB4Yk9HR3l5K3ZGUEk="
+
+  content: |-
+    email_domains = [ "*" ]
+    upstreams = [ "static://202" ]
+    provider = "github"
+    scope = "user:email"
+    github_users = "florentchevalier"
+
+
+ingress:
+  enabled: false
+
+redis:
+  enabled: false
+
+extraEnvVars:
+  - name: HTTP_PROXY
+    value: http://proxy-web.proxy-dmz.gnc:3128
+  - name: HTTPS_PROXY
+    value: http://proxy-web.proxy-dmz.gnc:3128
+  - name: NO_PROXY
+    value: code-server

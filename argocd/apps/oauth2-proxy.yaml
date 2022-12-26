@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: oauth2-proxy
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: oauth2-proxy
+    server: https://kubernetes.default.svc
+  project: argocd
+  source:
+    repoURL: https://oauth2-proxy.github.io/manifests
+    targetRevision: 6.7.1
+    chart: oauth2-proxy
+    helm:
+      valueFiles:
+        - https://raw.githubusercontent.com/BlueNc/k3s-fch/main/oauth2-proxy/values.yaml
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
