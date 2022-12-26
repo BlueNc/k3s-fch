@@ -2,7 +2,9 @@ ingress:
   enabled: true
   ingressClassName: traefik
   hosts:
-    - code2.k3s-fch.dev.gnc
+    - host: code2.k3s-fch.dev.gnc
+      paths:
+        - /
   annotations:
     cert-manager.io/cluster-issuer: "ca-issuer"
     traefik.ingress.kubernetes.io/router.middlewares: oauth2-proxy-oauth2-proxy@kubernetescrd
