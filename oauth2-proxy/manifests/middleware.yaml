@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: oauth2-proxy
-  namespace: oauth2-proxy
+  namespace: default
 spec:
   forwardAuth:
     address: http://oauth2-proxy/
