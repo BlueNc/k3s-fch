@@ -11,7 +11,7 @@ config:
     scope = "user:email"
     github_users = "florentchevalier"
     cookie_domains = ".k3s-fch.dev.gnc"
-    redirect_url = "auth.k3s-fch.dev.gnc/oauth2/callback"
+    redirect_url = "https://auth.k3s-fch.dev.gnc/oauth2/callback"
     whitelist_domains = "*.k3s-fch.dev.gnc"
 
 ingress:
