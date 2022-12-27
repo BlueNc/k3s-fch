@@ -10,6 +10,9 @@ config:
     provider = "github"
     scope = "user:email"
     github_users = "florentchevalier"
+    cookie_domain = ".k3s-fch.dev.gnc"
+    redirect_url = "auth.k3s-fch.dev.gnc"
+    whitelist_domain = "*.k3s-fch.dev.gnc"
 
 ingress:
   enabled: true
