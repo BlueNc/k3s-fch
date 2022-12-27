@@ -4,15 +4,25 @@ configuration:
   cookieSecret: "RU9ReUE3NUhXcEk1N3N5Rk1ZdnB4Yk9HR3l5K3ZGUEk="
 
   content: |-
+    reverse_proxy = true
     email_domains = [ "*" ]
     upstreams = [ "static://202" ]
     provider = "github"
     scope = "user:email"
     github_users = "florentchevalier"
 
-
 ingress:
-  enabled: false
+  enabled: true
+  ingressClassName: traefik
+  hosts:
+    - auth.k3s-fch.dev.gnc
+  annotations:
+    cert-manager.io/cluster-issuer: "ca-issuer"
+    traefik.ingress.kubernetes.io/router.middlewares: default-auth-headers@kubernetescrd
+  tls:
+    - hosts:
+        - auth.k3s-fch.dev.gnc
+      secretName: auth-k3s-fch-dev-gnc
 
 redis:
   enabled: false
