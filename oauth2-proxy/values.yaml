@@ -27,7 +27,7 @@ ingress:
 redis:
   enabled: false
 
-extraEnvVars:
+extraEnv:
   - name: HTTP_PROXY
     value: http://proxy-web.proxy-dmz.gnc:3128
   - name: HTTPS_PROXY
