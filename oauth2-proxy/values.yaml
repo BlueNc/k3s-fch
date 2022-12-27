@@ -4,7 +4,7 @@ configuration:
   cookieSecret: "RU9ReUE3NUhXcEk1N3N5Rk1ZdnB4Yk9HR3l5K3ZGUEk="
 
   content: |-
-    reverse_proxy = true
+    reverse_proxy = "true"
     email_domains = [ "*" ]
     upstreams = [ "static://202" ]
     provider = "github"
