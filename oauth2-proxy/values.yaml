@@ -1,10 +1,10 @@
-configuration:
+config:
   clientID: "bac46b4c7cd995b7598a"
   clientSecret: "89ee19600bbcb7296ee8382427ee7938ccede58c"
   cookieSecret: "RU9ReUE3NUhXcEk1N3N5Rk1ZdnB4Yk9HR3l5K3ZGUEk="
 
-  content: |-
-    reverse_proxy = "true"
+  configFile: |-
+    reverse_proxy = true
     email_domains = [ "*" ]
     upstreams = [ "static://202" ]
     provider = "github"
