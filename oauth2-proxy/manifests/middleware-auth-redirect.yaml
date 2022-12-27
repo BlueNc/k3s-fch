@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: oauth2-proxy-redirect
+  namespace: default
+spec:
+  redirectRegex:
+    regex: ^https://(.*)/oauth2/start?rd=(.*)
+    replacement: https://auth.k3s-fch.dev.gnc/oauth2/start?rd=${2}

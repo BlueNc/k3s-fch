@@ -7,7 +7,7 @@ ingress:
         - /
   annotations:
     cert-manager.io/cluster-issuer: "ca-issuer"
-    traefik.ingress.kubernetes.io/router.middlewares: default-oauth2-proxy-forward@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: default-oauth2-proxy-forward@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd
   tls:
     - hosts:
         - code2.k3s-fch.dev.gnc
