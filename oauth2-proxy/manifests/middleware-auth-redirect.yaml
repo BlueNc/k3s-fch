@@ -5,5 +5,5 @@ metadata:
   namespace: default
 spec:
   redirectRegex:
-    regex: ^https:\\/\\/(.*)\\/oauth2\\/start\\?rd=(.*)
+    regex: ^https://(.*)/oauth2/start\\?rd=(.*)
     replacement: https://auth.k3s-fch.dev.gnc/oauth2/start?rd=${2}
