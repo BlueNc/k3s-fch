@@ -1,37 +1,38 @@
-config:
-  existingSecret: oauth2-proxy-secret
+oauth2-proxy:
+  config:
+    existingSecret: oauth2-proxy-secret
 
-  configFile: |-
-    reverse_proxy = true
-    email_domains = [ "*" ]
-    upstreams = [ "static://202" ]
-    provider = "github"
-    scope = "user:email"
-    github_users = "florentchevalier"
-    cookie_domains = ".k3s-fch.dev.gnc"
-    redirect_url = "https://auth.k3s-fch.dev.gnc/oauth2/callback"
-    whitelist_domains = "*.k3s-fch.dev.gnc"
+    configFile: |-
+      reverse_proxy = true
+      email_domains = [ "*" ]
+      upstreams = [ "static://202" ]
+      provider = "github"
+      scope = "user:email"
+      github_users = "florentchevalier"
+      cookie_domains = ".k3s-fch.dev.gnc"
+      redirect_url = "https://auth.k3s-fch.dev.gnc/oauth2/callback"
+      whitelist_domains = "*.k3s-fch.dev.gnc"
 
-ingress:
-  enabled: true
-  ingressClassName: traefik
-  hosts:
-    - auth.k3s-fch.dev.gnc
-  annotations:
-    cert-manager.io/cluster-issuer: "ca-issuer"
-    traefik.ingress.kubernetes.io/router.middlewares: default-auth-headers@kubernetescrd
-  tls:
-    - hosts:
-        - auth.k3s-fch.dev.gnc
-      secretName: auth-k3s-fch-dev-gnc
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - auth.k3s-fch.dev.gnc
+    annotations:
+      cert-manager.io/cluster-issuer: "ca-issuer"
+      traefik.ingress.kubernetes.io/router.middlewares: default-auth-headers@kubernetescrd
+    tls:
+      - hosts:
+          - auth.k3s-fch.dev.gnc
+        secretName: auth-k3s-fch-dev-gnc
 
-redis:
-  enabled: false
+  redis:
+    enabled: false
 
-extraEnv:
-  - name: HTTP_PROXY
-    value: http://proxy-web.proxy-dmz.gnc:3128
-  - name: HTTPS_PROXY
-    value: http://proxy-web.proxy-dmz.gnc:3128
-  - name: NO_PROXY
-    value: code-server
+  extraEnv:
+    - name: HTTP_PROXY
+      value: http://proxy-web.proxy-dmz.gnc:3128
+    - name: HTTPS_PROXY
+      value: http://proxy-web.proxy-dmz.gnc:3128
+    - name: NO_PROXY
+      value: code-server
