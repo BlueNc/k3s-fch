@@ -12,7 +12,7 @@ ingress:
     - hosts:
         - code2.k3s-fch.dev.gnc
       secretName: code2-k3s-fch-dev-gnc
-  
+
 extraVars:
   - name: TZ
     value: Pacific/Noumea

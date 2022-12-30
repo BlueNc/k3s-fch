@@ -11,12 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: argocd
   source:
-    repoURL: https://oauth2-proxy.github.io/manifests
-    targetRevision: 6.7.1
-    chart: oauth2-proxy
-    helm:
-      valueFiles:
-        - https://raw.githubusercontent.com/BlueNc/k3s-fch/main/oauth2-proxy/values.yaml
+    path: oauth2-proxy
+    repoURL: https://github.com/BlueNc/k3s-fch.git
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
