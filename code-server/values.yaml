@@ -1,3 +1,6 @@
+image:
+  repository: docker-registry.ref.gnc/codinum
+  tag: 'latest'
 ingress:
   enabled: true
   ingressClassName: traefik
