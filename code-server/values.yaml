@@ -30,3 +30,9 @@ extraVars:
 
 persistence:
   enabled: false
+
+extraConfigmapMounts:
+  - name: code-server-config
+    mountPath: /home/coder/.config/code-server
+    configMap: code-server-config
+    readOnly: true
