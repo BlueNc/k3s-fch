@@ -1,0 +1,118 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: code-server-keybindings
+data:
+  keybindings.json: |-
+    [
+      {
+          "key": "[Backquote]",
+          "command": "workbench.action.terminal.toggleTerminal"
+      },
+      {
+          "key": "ctrl+alt+q",
+          "command": "workbench.action.quit"
+      },
+      {
+          "key": "ctrl+q",
+          "command": "-workbench.action.quit"
+      },
+      {
+          "key": "backspace alt",
+          "command": "jupyter.runcurrentcellandaddbelow",
+          "when": "editorTextFocus && jupyter.featureenabled && jupyter.hascodecells && !editorHasSelection"
+      },
+      {
+          "key": "alt+enter",
+          "command": "-jupyter.runcurrentcellandaddbelow",
+          "when": "editorTextFocus && jupyter.featureenabled && jupyter.hascodecells && !editorHasSelection"
+      },
+      {
+          "key": "alt+enter",
+          "command": "editor.action.quickFix",
+          "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+      },
+      {
+          "key": "ctrl+shift+[Comma]",
+          "command": "-editor.action.quickFix",
+          "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+      },
+      {
+          "key": "alt+right",
+          "command": "editor.action.addSelectionToNextFindMatch",
+          "when": "editorFocus"
+      },
+      {
+          "key": "ctrl+d",
+          "command": "-editor.action.addSelectionToNextFindMatch",
+          "when": "editorFocus"
+      },
+      {
+          "key": "ctrl+d",
+          "command": "editor.action.deleteLines",
+          "when": "textInputFocus && !editorReadonly"
+      },
+      {
+          "key": "ctrl+shift+k",
+          "command": "-editor.action.deleteLines",
+          "when": "textInputFocus && !editorReadonly"
+      },
+      {
+          "key": "alt+right",
+          "command": "-workbench.action.terminal.focusNextPane",
+          "when": "terminalFocus"
+      },
+      {
+          "key": "alt+right",
+          "command": "-gitlens.key.alt+right",
+          "when": "gitlens:key:alt+right"
+      },
+      {
+          "key": "shift+f4",
+          "command": "-search.action.focusPreviousSearchResult",
+          "when": "hasSearchResult"
+      },
+      {
+          "key": "shift+f4",
+          "command": "-goToPreviousReference",
+          "when": "referenceSearchVisible"
+      },
+      {
+          "key": "shift+f4",
+          "command": "-goToPreviousReferenceFromEmbeddedEditor",
+          "when": "inReferenceSearchEditor"
+      },
+      {
+          "key": "shift+f4",
+          "command": "-references-view.prev",
+          "when": "reference-list.hasResult"
+      },
+      {
+          "key": "shift+f4",
+          "command": "references-view.find",
+          "when": "editorHasReferenceProvider"
+      },
+      {
+          "key": "shift+alt+f12",
+          "command": "-references-view.find",
+          "when": "editorHasReferenceProvider"
+      },
+      {
+          "key": "alt+left",
+          "command": "-workbench.action.terminal.focusPreviousPane",
+          "when": "terminalFocus"
+      },
+      {
+          "key": "alt+left",
+          "command": "-gitlens.key.alt+left",
+          "when": "gitlens:key:alt+left"
+      },
+      {
+          "key": "alt+left",
+          "command": "editor.action.addSelectionToPreviousFindMatch"
+      },
+      {
+          "key": "shift+[Backquote]",
+          "command": "workbench.action.toggleMaximizedPanel"
+      }
+    ]
