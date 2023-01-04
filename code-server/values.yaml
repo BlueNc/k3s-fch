@@ -36,3 +36,7 @@ extraConfigmapMounts:
     mountPath: /home/coder/.config/code-server
     configMap: code-server-config
     readOnly: true
+  - name: code-server-settings
+    mountPath: /home/coder/.local/share/code-server/User/
+    configMap: code-server-settings
+    readOnly: true
