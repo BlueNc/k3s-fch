@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbgate
+spec:
+  selector:
+    matchLabels:
+      app: dbgate
+  template:
+    metadata:
+      labels:
+        app: dbgate
+    spec:
+      containers:
+      - name: dbgate
+        image: dbgate/dbgate:5.2.0-alpine
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 3000
+        env:
+          - name: TZ
+            value: Pacific/Noumea
+          - name: HTTP_PROXY
+            value: http://proxy-web.proxy-dmz.gnc:3128
+          - name: HTTPS_PROXY
+            value: http://proxy-web.proxy-dmz.gnc:3128
+          - name: NO_PROXY
+            value: 127.0.0.0/24,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,0.0.0.0/32,localhost,.svc,.recif.nc,.appli-gestion.nc,.gnc,.valid-gouv.nc,.dmz.nc,.admin.nc,jira.gouv.nc,jira-info.gouv.nc,10.96.0.1
+        volumeMounts:
+          - name: dbgate-data
+            mountPath: /root/.dbgate
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "100m"
+      volumes:
+      - name: dbgate-data
+        persistentVolumeClaim:
+          claimName: dbgate-data-pvc

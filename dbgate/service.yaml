@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbgate
+spec:
+  selector:
+    app: dbgate
+  ports:
+  - port: 80
+    targetPort: 3000
