@@ -34,8 +34,10 @@ spec:
             value: dbgate
           - name: OAUTH_CLIENT_SECRET
             value: dfO4nHFsTriN
+          - name: OAUTH_LOGIN_FIELD
+            value: client_id
           - name: OAUTH_ALLOWED_LOGINS
-            value: florent.chevalier
+            value: dbgate
         volumeMounts:
           - name: dbgate-data
             mountPath: /root/.dbgate
