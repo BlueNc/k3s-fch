@@ -34,6 +34,8 @@ spec:
             value: test-fch
           - name: OAUTH_CLIENT_SECRET
             value: dfO4nHFsTriN
+          - name: OAUTH_ALLOWED_LOGINS
+            value: florent.chevalier
         volumeMounts:
           - name: dbgate-data
             mountPath: /root/.dbgate
