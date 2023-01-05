@@ -14,3 +14,10 @@ pgadmin4:
       - hosts:
           - pgadmin.k3s-fch.dev.gnc
         secretName: pgadmin-k3s-fch-dev-gnc
+
+  extraConfigmapMounts:
+  - name: servers-config
+    mountPath: /pgadmin4/servers.json
+    configMap: servers-config
+    subPath: servers.json
+    readOnly: true
