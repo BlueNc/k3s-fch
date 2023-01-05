@@ -48,6 +48,6 @@ extraConfigmapMounts:
     readOnly: true
   - name: git-config
     mountPath: /home/coder/.gitconfig
-    configMap: code-server-settings
+    configMap: git-config
     subPath: .gitconfig
     readOnly: true
