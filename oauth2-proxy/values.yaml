@@ -20,7 +20,7 @@ oauth2-proxy:
       - auth.k3s-fch.dev.gnc
     annotations:
       cert-manager.io/cluster-issuer: "ca-issuer"
-      traefik.ingress.kubernetes.io/router.middlewares: default-auth-headers@kubernetescrd
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-auth-headers@kubernetescrd
     tls:
       - hosts:
           - auth.k3s-fch.dev.gnc

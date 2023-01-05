@@ -9,6 +9,7 @@ pgadmin4:
             pathType: Prefix
     annotations:
       cert-manager.io/cluster-issuer: "ca-issuer"
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
       # traefik.ingress.kubernetes.io/router.middlewares: default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
     tls:
       - hosts:
