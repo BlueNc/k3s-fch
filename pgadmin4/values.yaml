@@ -1,0 +1,17 @@
+pgadmin4:
+  env:
+
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - host: pgadmin.k3s-fch.dev.gnc
+        paths:
+          - /
+    annotations:
+      cert-manager.io/cluster-issuer: "ca-issuer"
+      traefik.ingress.kubernetes.io/router.middlewares: default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
+    tls:
+      - hosts:
+          - pgadmin.k3s-fch.dev.gnc
+        secretName: pgadmin-k3s-fch-dev-gnc
