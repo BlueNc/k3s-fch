@@ -1,6 +1,4 @@
 pgadmin4:
-  env:
-
   ingress:
     enabled: true
     ingressClassName: traefik
