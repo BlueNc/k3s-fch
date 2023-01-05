@@ -31,7 +31,7 @@ spec:
           - name: OAUTH_TOKEN
             value: http://srv-trinity-101.shadow-dmz.gnc:7293/api/oauth/token
           - name: OAUTH_CLIENT_ID
-            value: test-fch
+            value: dbgate
           - name: OAUTH_CLIENT_SECRET
             value: dfO4nHFsTriN
           - name: OAUTH_ALLOWED_LOGINS
