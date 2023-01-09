@@ -9,13 +9,6 @@ data:
         "terminal.integrated.rightClickBehavior": "default",
         "terminal.integrated.copyOnSelection": true,
         "redhat.telemetry.enabled": false,
-        "vs-kubernetes": {
-            "vscode-kubernetes.kubectl-path.linux": "/home/coder/.local/state/vs-kubernetes/tools/kubectl/kubectl",
-            "vscode-kubernetes.minikube-path.linux": "/home/coder/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube",
-            "vscode-kubernetes.helm-path.linux": "/home/coder/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
-            "vs-kubernetes.minikube-show-information-expiration": "2022-12-31T03:03:23.872Z"
-        },
-
         "editor.renderWhitespace": "all",
         "editor.autoClosingBrackets": "never",
         "editor.autoClosingQuotes": "never",
