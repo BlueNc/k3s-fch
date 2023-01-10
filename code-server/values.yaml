@@ -5,7 +5,7 @@ ingress:
   enabled: true
   ingressClassName: traefik
   hosts:
-    - host: code2.k3s-fch.dev.gnc
+    - host: code.k3s-fch.dev.gnc
       paths:
         - /
   annotations:
@@ -13,10 +13,12 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
   tls:
     - hosts:
-        - code2.k3s-fch.dev.gnc
-      secretName: code2-k3s-fch-dev-gnc
+        - code.k3s-fch.dev.gnc
+      secretName: code-k3s-fch-dev-gnc
 
 extraVars:
+  - name: EXTENSIONS
+    value: ms-kubernetes-tools.vscode-kubernetes-tools
   - name: TZ
     value: Pacific/Noumea
   - name: HTTP_PROXY
@@ -45,6 +47,11 @@ extraConfigmapMounts:
     mountPath: /home/coder/.local/share/code-server/User/keybindings.json
     configMap: code-server-keybindings
     subPath: keybindings.json
+    readOnly: true
+  - name: git-config
+    mountPath: /home/coder/.gitconfig
+    configMap: git-config
+    subPath: .gitconfig
     readOnly: true
   - name: git-config
     mountPath: /home/coder/.gitconfig
