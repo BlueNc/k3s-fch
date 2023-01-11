@@ -57,13 +57,13 @@ extraConfigmapMounts:
 extraSecretMounts:
   - name: ssh-key-pair-id-rsa
     mountPath: /home/coder/.ssh/id_rsa
-    configMap: ssh-key-pair-generator
+    secretName: ssh-key-pair-generator
     subPath: ssh-privatekey
     readOnly: true
     defaultMode: 0600
   - name: ssh-key-pair-id-rsa-pub
     mountPath: /home/coder/.ssh/id_rsa.pub
-    configMap: ssh-key-pair-generator
+    secretName: ssh-key-pair-generator
     subPath: ssh-publickey
     readOnly: true
     defaultMode: 0400
