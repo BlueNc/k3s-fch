@@ -17,33 +17,12 @@ spec:
         imagePullPolicy: Always
         ports:
           - containerPort: 3000
-        env:
-          - name: TZ
-            value: Pacific/Noumea
-          - name: HTTP_PROXY
-            value: http://proxy-web.proxy-dmz.gnc:3128
-          - name: HTTPS_PROXY
-            value: http://proxy-web.proxy-dmz.gnc:3128
-          - name: NO_PROXY
-            value: 127.0.0.0/24,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,0.0.0.0/32,localhost,.svc,.recif.nc,.appli-gestion.nc,.gnc,.valid-gouv.nc,.dmz.nc,.admin.nc,jira.gouv.nc,jira-info.gouv.nc,10.96.0.1
-          - name: OAUTH_AUTH
-            value: https://gemini.shadow-dmz.gnc/authorize
-          - name: OAUTH_TOKEN
-            value: http://srv-trinity-101.shadow-dmz.gnc:7293/api/oauth/token
-          - name: OAUTH_CLIENT_ID
-            value: dbgate
-          - name: OAUTH_CLIENT_SECRET
-            value: dfO4nHFsTriN
-          - name: OAUTH_LOGIN_FIELD
-            value: client_id
-          - name: OAUTH_ALLOWED_LOGINS
-            value: dbgate
         volumeMounts:
           - name: dbgate-data
             mountPath: /root/.dbgate
         resources:
           limits:
-            memory: "512Mi"
+            memory: "256Mi"
             cpu: "100m"
       volumes:
       - name: dbgate-data
