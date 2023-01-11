@@ -3,7 +3,5 @@ kind: "SSHKeyPair"
 metadata:
   name: "ssh-key-pair-generator"
 spec:
-  length: "40"
+  length: "4096"
   forceRegenerate: false
-  data:
-    example: "data"
