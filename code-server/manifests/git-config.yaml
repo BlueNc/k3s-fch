@@ -7,3 +7,5 @@ data:
     [user]
         email = florent.chevalier.nc@gmail.com
         name = Florent Chevalier
+    [pull]
+        ff = only
