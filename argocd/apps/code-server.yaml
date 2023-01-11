@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: argocd
   source:
-    repoURL: https://github.com/coder/code-server
+    repoURL: https://github.com/BlueNc/code-server
     targetRevision: HEAD
     path: ci/helm-chart
     helm:
