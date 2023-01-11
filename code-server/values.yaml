@@ -53,6 +53,8 @@ extraConfigmapMounts:
     configMap: git-config
     subPath: .gitconfig
     readOnly: true
+    
+extraSecretMounts:
   - name: ssh-key-pair-id-rsa
     mountPath: /home/coder/.ssh/id_rsa
     configMap: ssh-key-pair-generator
