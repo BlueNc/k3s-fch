@@ -42,17 +42,17 @@ extraConfigmapMounts:
     mountPath: /home/coder/.local/share/code-server/User/settings.json
     configMap: code-server-settings
     subPath: settings.json
-    readOnly: true
+    readOnly: false
   - name: code-server-keybindings
     mountPath: /home/coder/.local/share/code-server/User/keybindings.json
     configMap: code-server-keybindings
     subPath: keybindings.json
-    readOnly: true
+    readOnly: false
   - name: git-config
     mountPath: /home/coder/.gitconfig
     configMap: git-config
     subPath: .gitconfig
-    readOnly: true
+    readOnly: false
     
 extraSecretMounts:
   - name: ssh-key-pair-id-rsa
@@ -60,11 +60,10 @@ extraSecretMounts:
     secretName: ssh-key-pair-generator
     subPath: ssh-privatekey
     readOnly: true
-    defaultMode: 0600
+    defaultMode: 0400
   - name: ssh-key-pair-id-rsa-pub
     mountPath: /home/coder/.ssh/id_rsa.pub
     secretName: ssh-key-pair-generator
     subPath: ssh-publickey
     readOnly: true
-    defaultMode: 0400
 
