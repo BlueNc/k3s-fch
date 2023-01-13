@@ -3,6 +3,6 @@ name: buildkit
 version: 1.0.0
 
 dependencies:
-- name: buildkit
+- name: buildkit-service
   version: 0.2.3
   repository: https://andrcuns.github.io/charts

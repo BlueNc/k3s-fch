@@ -1,2 +1,2 @@
-buildkit:
+buildkit-service:
   rootless: true
