@@ -1,0 +1,9 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: buildkit-config
+data:
+  buildkitd.toml: |-
+    [registry."docker-registry.ref.gnc"]
+      ca=["/usr/local/share/ca-certificates/DTSI_CA2-BY-PUPPET.crt"]

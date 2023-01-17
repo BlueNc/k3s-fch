@@ -52,10 +52,16 @@ spec:
               name: buildkitd
             - mountPath: /etc/certs
               name: dtsi-ca
+            - mountPath: /home/user/.config/buildkit/buildkitd.toml
+              name: buildkit-config
       volumes:
         - name: buildkitd
           emptyDir: {}
         - name: dtsi-ca
           configMap:
             name: dtsi-ca-config
+        - name: buildkit-config
+          configMap:
+            name: buildkit-config
+
 
