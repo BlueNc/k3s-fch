@@ -18,7 +18,7 @@ ingress:
 
 extraVars:
   - name: EXTENSIONS
-    value: ms-kubernetes-tools.vscode-kubernetes-tools
+    value: ms-kubernetes-tools.vscode-kubernetes-tools EditorConfig.EditorConfig
   - name: TZ
     value: Pacific/Noumea
   - name: HTTP_PROXY
