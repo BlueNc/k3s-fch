@@ -7,3 +7,6 @@ data:
   buildkitd.toml: |-
     [registry."docker-registry.ref.gnc"]
       ca=["/etc/certs/DTSI_CA2-BY-PUPPET.crt"]
+
+    [registry."docker.io"]
+      mirrors = ["docker-registry.ref.gnc"]
