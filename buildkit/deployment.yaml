@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: buildkitd
+  name: buildkitd
+spec:
+  selector:
+    matchLabels:
+      app: buildkitd
+  template:
+    metadata:
+      labels:
+        app: buildkitd
+      annotations:
+        container.apparmor.security.beta.kubernetes.io/buildkitd: unconfined
+    spec:
+      containers:
+        - name: buildkitd
+          image: moby/buildkit:v0.11.0-rootless
+          args:
+            - --addr
+            - unix:///run/user/1000/buildkit/buildkitd.sock
+            - --addr
+            - tcp://0.0.0.0:1234
+            - --oci-worker-no-process-sandbox
+          readinessProbe:
+            exec:
+              command:
+                - buildctl
+                - debug
+                - workers
+            initialDelaySeconds: 5
+            periodSeconds: 30
+          livenessProbe:
+            exec:
+              command:
+                - buildctl
+                - debug
+                - workers
+            initialDelaySeconds: 5
+            periodSeconds: 30
+          securityContext:
+            seccompProfile:
+              type: Unconfined
+            runAsUser: 1000
+            runAsGroup: 1000
+          ports:
+            - containerPort: 1234
+          volumeMounts:
+            - mountPath: /home/user/.local/share/buildkit
+              name: buildkitd
+            - mountPath: /etc/certs
+              name: dtsi-ca
+      volumes:
+        - name: buildkitd
+          emptyDir: {}
+        - name: dtsi-ca
+          configMap:
+            name: dtsi-ca-config
+
