@@ -52,7 +52,7 @@ spec:
               name: buildkitd
             - mountPath: /etc/certs
               name: dtsi-ca
-            - mountPath: /home/user/.config/buildkit/buildkitd.toml
+            - mountPath: /home/user/.config/buildkit/
               name: buildkit-config
       volumes:
         - name: buildkitd
