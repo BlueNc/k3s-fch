@@ -6,4 +6,4 @@ metadata:
 data:
   buildkitd.toml: |-
     [registry."docker-registry.ref.gnc"]
-      ca=["/usr/local/share/ca-certificates/DTSI_CA2-BY-PUPPET.crt"]
+      ca=["/etc/certs/DTSI_CA2-BY-PUPPET.crt"]
