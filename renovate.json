@@ -5,7 +5,11 @@
   ],
   "argocd": {
     "fileMatch": [
-      "argocd/apps/.+\\.yaml$"
+      "argocd/apps/.+\\.yaml$",
+      "buildkit/.+\\.yaml$",
+      "cert-manager-config/.+\\.yaml$",
+      "code-server/manifests/.+\\.yaml$",
+      "dbgate/.+\\.yaml$"
     ]
   }
 }
