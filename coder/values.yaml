@@ -20,14 +20,12 @@ coder:
     ingress:
       enable: true
       ingressClassName: traefik
-      hosts:
-        - host: coder.k3s-fch.dev.gnc
-          paths:
-            - /
+      host: coder.k3s-fch.dev.gnc
+      wildcardHost: "*.coder.k3s-fch.dev.gnc"
       annotations:
         cert-manager.io/cluster-issuer: "ca-issuer"
         traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
       tls:
-        - hosts:
-            - coder.k3s-fch.dev.gnc
-          secretName: coder-k3s-fch-dev-gnc
+        enable: true
+        secretName: coder-k3s-fch-dev-gnc
+        wildcardSecretName: wildcard-coder-k3s-fch-dev-gnc
