@@ -5,28 +5,29 @@ postgresql:
     database: coder
 
 coder:
-  env:
-    - name: PG_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: postgres
-          key: password
-    - name: CODER_PG_CONNECTION_URL
-      valueFrom:
-        secretKeyRef:
-          name: coder-db-url
-          value: postgres://coder:$(PG_PASSWORD)@postgres:5432/coder?sslmode=disable
-  ingress:
-    enable: true
-    ingressClassName: traefik
-    hosts:
-      - host: coder.k3s-fch.dev.gnc
-        paths:
-          - /
-    annotations:
-      cert-manager.io/cluster-issuer: "ca-issuer"
-      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
-    tls:
-      - hosts:
-          - coder.k3s-fch.dev.gnc
-        secretName: coder-k3s-fch-dev-gnc
+  coder:
+    env:
+      - name: PG_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: postgres
+            key: password
+      - name: CODER_PG_CONNECTION_URL
+        valueFrom:
+          secretKeyRef:
+            name: coder-db-url
+            value: postgres://coder:$(PG_PASSWORD)@postgres:5432/coder?sslmode=disable
+    ingress:
+      enable: true
+      ingressClassName: traefik
+      hosts:
+        - host: coder.k3s-fch.dev.gnc
+          paths:
+            - /
+      annotations:
+        cert-manager.io/cluster-issuer: "ca-issuer"
+        traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
+      tls:
+        - hosts:
+            - coder.k3s-fch.dev.gnc
+          secretName: coder-k3s-fch-dev-gnc
