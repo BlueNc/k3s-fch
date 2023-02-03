@@ -1,0 +1,11 @@
+apiVersion: v2
+name: coder
+version: 1.0.0
+
+dependencies:
+- name: coder
+  version: 0.16.0
+  repository: https://helm.coder.com/v2
+- name: postgresql
+  version: 12.1.14
+  repository: https://charts.bitnami.com/bitnami
