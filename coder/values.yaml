@@ -13,10 +13,7 @@ coder:
             name: postgres
             key: password
       - name: CODER_PG_CONNECTION_URL
-        valueFrom:
-          secretKeyRef:
-            name: coder-db-url
-            value: postgres://coder:$(PG_PASSWORD)@postgres:5432/coder?sslmode=disable
+        value: postgres://coder:$(PG_PASSWORD)@postgres:5432/coder?sslmode=disable
     ingress:
       enable: true
       ingressClassName: traefik
