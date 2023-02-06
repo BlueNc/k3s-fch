@@ -4,7 +4,7 @@ metadata:
   name: coder
 rules:
   - apiGroups: [""]
-    resources: ["pods"]
+    resources: ["*"]
     verbs: ["*"]
 ---
 apiVersion: v1
