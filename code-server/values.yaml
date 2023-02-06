@@ -18,7 +18,7 @@ ingress:
 
 extraVars:
   - name: EXTENSIONS
-    value: ms-kubernetes-tools.vscode-kubernetes-tools EditorConfig.EditorConfig
+    value: ms-kubernetes-tools.vscode-kubernetes-tools EditorConfig.EditorConfig hashicorp.terraform
   - name: TZ
     value: Pacific/Noumea
   - name: HTTP_PROXY
@@ -53,7 +53,7 @@ extraConfigmapMounts:
     configMap: git-config
     subPath: .gitconfig
     readOnly: false
-    
+
 extraSecretMounts:
   - name: ssh-key-pair-id-rsa
     mountPath: /home/coder/.ssh/id_rsa
