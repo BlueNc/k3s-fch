@@ -21,7 +21,7 @@ coder:
       wildcardHost: "*.coder.k3s-fch.dev.gnc"
       annotations:
         cert-manager.io/cluster-issuer: "ca-issuer"
-        traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-oauth2-proxy-redirect@kubernetescrd,default-oauth2-proxy-forward@kubernetescrd
+        traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
       tls:
         enable: true
         secretName: coder-k3s-fch-dev-gnc
