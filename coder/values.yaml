@@ -14,6 +14,8 @@ coder:
             key: password
       - name: CODER_PG_CONNECTION_URL
         value: postgres://coder:$(PG_PASSWORD)@coder-postgresql:5432/coder?sslmode=disable
+    service:
+      type: ClusterIP
     ingress:
       enable: true
       ingressClassName: traefik
