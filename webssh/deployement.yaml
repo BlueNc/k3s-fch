@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webssh
+spec:
+  selector:
+    matchLabels:
+      app: webssh
+  template:
+    metadata:
+      labels:
+        app: webssh
+    spec:
+      containers:
+      - name: webssh
+        image: billchurch/webssh2:0.4.6
+        ports:
+          - containerPort: 2222
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
