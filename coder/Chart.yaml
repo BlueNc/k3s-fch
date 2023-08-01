@@ -4,7 +4,7 @@ version: 1.0.0
 
 dependencies:
 - name: coder
-  version: 0.17.1
+  version: 0.27.3
   repository: https://helm.coder.com/v2
 - name: postgresql
   version: 12.1.15
